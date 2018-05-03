@@ -19,7 +19,10 @@ class UnitController extends Controller
      */
     public function index()
     {
-        $unit = Unit::all();
+        $unit = Unit::with('ability')
+            ->with('melee')
+            ->with('missle')
+            ->get();
 
         return view('unit.index')
             ->with('unit', $unit);
@@ -54,7 +57,8 @@ class UnitController extends Controller
      */
     public function show(Unit $unit)
     {
-        $unit = Unit::with('ability')
+        $unit = Unit::where('id', $unit->id)
+            ->with('ability')
             ->with('melee')
             ->with('missle')
             ->get();
@@ -62,16 +66,6 @@ class UnitController extends Controller
             return view('unit.show')
                 ->with('unit', $unit);
     }
-    // public function show($id)
-    // {
-    //     $unit = DB::table('units')
-    //         ->join('abilities', 'units.id', '=', 'abilities.unit_id')
-    //         ->select('units.*', 'abilities.*')
-    //         ->get();
-    //     dd($unit->toArray());
-    //     return view('unit.show')
-    //         ->with('unit', $unit);
-    // }
 
     /**
      * Show the form for editing the specified resource.

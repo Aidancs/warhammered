@@ -24,6 +24,7 @@ class CreateUnitsTable extends Migration
             $table->boolean('fly');
             $table->boolean('alive');
             $table->integer('number_of_models');
+            $table->integer('number_of_wounds_left');
             $table->timestamps();
         });
     }

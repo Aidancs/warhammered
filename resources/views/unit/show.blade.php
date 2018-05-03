@@ -13,9 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @foreach ($unit as $u)
+                    {{$unit}}
+                   {{--  @foreach ($unit as $u)
                         {{$u->name}}
-                    @endforeach
+                    @endforeach --}}
                    {{--  <div>Name: {{ $unit->name }}</div>
                     <div>Move: {{ $unit->move }}</div>
                     <div>Wounds: {{ $unit->wounds }}</div>
