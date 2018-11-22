@@ -18,5 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/units', 'UnitController@index');
-Route::get('/units/{unit}', 'UnitController@show');
+Route::get('/units', 'UnitController@index')->name('units');
+Route::get('/units/{unit}', 'UnitController@show')->name('unit.show');
